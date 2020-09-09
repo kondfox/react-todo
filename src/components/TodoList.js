@@ -1,26 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Todo } from './Todo'
 
-export const TodoList = () => {
-  const [todos, setTodos] = useState([
-    {
-      title: 'Buy Milk',
-      isDone: true,
-      priority: 'low',
-    },
-    {
-      title: 'Walk dog',
-      isDone: false,
-      priority: 'high',
-    },
-  ])
-
+export const TodoList = ({ todos, handleDone }) => {
   return (
     <>
       <h1>My Todos</h1>
       <ul id="todo">
         {
-          todos.map(todo => <Todo todo={todo} />)
+          todos.map(todo => <Todo key={todo.id} todo={todo} handleDone={handleDone} />)
         }
       </ul>
     </>
