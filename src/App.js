@@ -2,16 +2,18 @@ import React from 'react'
 import './App.css'
 import { TodoList } from './components/TodoList'
 import { AddTodo } from './components/AddTodo'
-import { useTodo } from './useTodo'
+import { store } from './store'
+import { Provider } from 'react-redux'
 
 function App() {
-  const [newTodo, todos, handleDone] = useTodo();
 
   return (
-    <div className="App">
-      <AddTodo newTodo={newTodo} />
-      <TodoList todos={todos} handleDone={handleDone} />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <AddTodo />
+        <TodoList />
+      </div>
+    </Provider>
   )
 }
 
