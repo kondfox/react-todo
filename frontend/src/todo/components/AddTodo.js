@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { TODO_ACTION } from '../constants'
+import { TODO_ACTION } from '../../constants'
 
 const AddTodoComponent = ({ newTodo }) => {
   const [title, setTitle] = useState('')
@@ -18,8 +18,19 @@ const AddTodoComponent = ({ newTodo }) => {
 
   return (
     <div className="addTodo">
-      <input id="newTitle" type="text" placeholder="New todo..." value={title} onChange={(e) => setTitle(e.target.value)}/>
-      <select name="priority" id="priority" value={priority} onChange={(e) => setPriority(e.target.value)}>
+      <input
+        id="newTitle"
+        type="text"
+        placeholder="New todo..."
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+      />
+      <select
+        name="priority"
+        id="priority"
+        value={priority}
+        onChange={e => setPriority(e.target.value)}
+      >
         <option value="high">high</option>
         <option value="medium">medium</option>
         <option value="low">low</option>
@@ -29,12 +40,13 @@ const AddTodoComponent = ({ newTodo }) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    newTodo: (todo) => dispatch({
-      type: TODO_ACTION.NEW_TODO,
-      payload: todo,
-    })
+    newTodo: todo =>
+      dispatch({
+        type: TODO_ACTION.NEW_TODO,
+        payload: todo,
+      }),
   }
 }
 

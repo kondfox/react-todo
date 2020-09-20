@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import TodoListPage from './todo/pages/TodoListPage'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TodoListPage />
   </React.StrictMode>,
   document.getElementById('root')
-);
+)

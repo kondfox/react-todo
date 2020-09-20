@@ -3,9 +3,9 @@ import { Button } from './Button'
 
 export const Todo = ({ title, isDone, priority, id, handleDone }) => {
   const content = `${title} | ${priority}`
-  
+
   return (
-    <li className='todo'>
+    <li className="todo">
       <span>{isDone ? <del>{content}</del> : content}</span>
       <Button title={isDone ? 'Undone' : 'Done'} click={handleDone}></Button>
     </li>

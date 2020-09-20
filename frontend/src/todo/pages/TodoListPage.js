@@ -1,12 +1,11 @@
 import React from 'react'
-import './App.css'
-import { TodoList } from './components/TodoList'
-import { AddTodo } from './components/AddTodo'
-import { store } from './store'
+import './TodoListPage.css'
+import { TodoList } from '../components/TodoList'
+import { AddTodo } from '../components/AddTodo'
+import { store } from '../../db/store'
 import { Provider } from 'react-redux'
 
 function App() {
-
   return (
     <Provider store={store}>
       <div className="App">
@@ -17,4 +16,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
