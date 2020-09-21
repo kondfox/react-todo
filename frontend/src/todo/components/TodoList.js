@@ -1,9 +1,7 @@
 import React from 'react'
 import { Todo } from './Todo'
-import { connect } from 'react-redux'
-import { TODO_ACTION } from '../../constants'
 
-const TodoListComponent = ({ todos, handleDone }) => {
+export const TodoList = ({ todos, handleDone }) => {
   return (
     <>
       <h1>My Todos</h1>
@@ -19,24 +17,3 @@ const TodoListComponent = ({ todos, handleDone }) => {
     </>
   )
 }
-
-const mapStateToProps = state => {
-  return {
-    todos: state.todos.todos,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    handleDone: id =>
-      dispatch({
-        type: TODO_ACTION.TOGGLE_DONE,
-        payload: id,
-      }),
-  }
-}
-
-export const TodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoListComponent)

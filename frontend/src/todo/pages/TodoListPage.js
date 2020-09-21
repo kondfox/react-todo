@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './TodoListPage.css'
 import { TodoList } from '../components/TodoList'
 import { AddTodo } from '../components/AddTodo'
-import { store } from '../../db/store'
-import { Provider } from 'react-redux'
+import { todoService } from '../services'
 
 function App() {
+  const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    todoService.fetchTodos().then(fetchedTodos => setTodos(fetchedTodos))
+  }, [])
+
+  const newTodo = async todo => {
+    const savedTodo = await todoService.addTodo(todo)
+    setTodos([...todos, savedTodo])
+  }
+
+  const handleDone = id => {
+    const todo = todos.reduce((target, t) => (t.id === id ? t : target))
+    todo.isDone = !todo.isDone
+    setTodos([...todos.map(t => (t.id === id ? todo : t))])
+  }
+
   return (
-    <Provider store={store}>
-      <div className="App">
-        <AddTodo />
-        <TodoList />
-      </div>
-    </Provider>
+    <div className="App">
+      <AddTodo newTodo={newTodo} />
+      <TodoList todos={todos} handleDone={handleDone} />
+    </div>
   )
 }
 

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { TODO_ACTION } from '../../constants'
 
-const AddTodoComponent = ({ newTodo }) => {
+export const AddTodo = ({ newTodo }) => {
   const [title, setTitle] = useState('')
   const [priority, setPriority] = useState('low')
 
@@ -39,15 +37,3 @@ const AddTodoComponent = ({ newTodo }) => {
     </div>
   )
 }
-
-const mapDispatchToProps = dispatch => {
-  return {
-    newTodo: todo =>
-      dispatch({
-        type: TODO_ACTION.NEW_TODO,
-        payload: todo,
-      }),
-  }
-}
-
-export const AddTodo = connect(null, mapDispatchToProps)(AddTodoComponent)
