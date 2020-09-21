@@ -18,7 +18,6 @@ export const Todo = {
           .map(([key, value]) => `${key}="${value}"`)
           .join(' AND ')
     }
-    console.log('query', query)
     const { results } = await db.query(query)
     return results
   },
