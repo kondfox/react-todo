@@ -3,7 +3,7 @@ import { PRIORITY } from '../constants'
 export const todoValidator = {
   id: {
     validate: id => typeof id === 'number' && id >= 0,
-    reauired: false,
+    required: false,
     errorMessage: 'Invalid id',
   },
   title: {

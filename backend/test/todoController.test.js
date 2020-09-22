@@ -17,8 +17,10 @@ const mockFindTodos = db.query.mockImplementation(() => mockDbResult)
 
 test('should respond with 200 - OK', done => {
   request(app)
+    // Act - request
     .get('/api/todos')
     .set('Accept', 'application/json')
+    // Assert - response
     .expect('Content-Type', /json/)
     .expect(200)
     .end((err, data) => {
@@ -34,12 +36,14 @@ test('should create new todo', async done => {
     results: { insertId: 3 },
   }))
   request(app)
+    // request
     .post('/api/todos')
     .set('Content-Type', 'application/json')
     .send({
       title: 'New todo',
       priority: 'high',
     })
+    // response
     .expect('Content-Type', /json/)
     .expect(201)
     .end((err, res) => {

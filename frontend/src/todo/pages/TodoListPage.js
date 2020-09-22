@@ -8,6 +8,7 @@ function App() {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
+    console.log('useEffect hook')
     todoService.fetchTodos().then(fetchedTodos => setTodos(fetchedTodos))
   }, [])
 
