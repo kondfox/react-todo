@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     console.log('useEffect hook')
-    todoService.fetchTodos().then(fetchedTodos => setTodos(fetchedTodos))
+    todoService.fetchTodos().then(fetchedTodos => setTodos(fetchedTodos.todos))
   }, [])
 
   const newTodo = async todo => {
