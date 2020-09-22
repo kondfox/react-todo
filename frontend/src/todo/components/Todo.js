@@ -6,7 +6,7 @@ export const Todo = ({ title, isDone, priority, id, handleDone }) => {
 
   return (
     <li className="todo">
-      <span>{isDone ? <del>{content}</del> : content}</span>
+      <span>{isDone ? <del data-testid="del">{content}</del> : content}</span>
       <Button title={isDone ? 'Undone' : 'Done'} click={handleDone}></Button>
     </li>
   )
