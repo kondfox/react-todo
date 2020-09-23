@@ -10,17 +10,24 @@ function* idGenerator() {
 
 const generateId = idGenerator()
 
-export const createTodo = () => {
-  const id = generateId.next().value
+export const createTodoWithoutId = () => {
   const randomIsDone = Math.floor(Math.random() * 2)
   const randomPriority = Object.values(PRIORITY)[
     Math.floor(Math.random() * Object.keys(PRIORITY).length)
   ]
   return {
-    id,
-    title: `todo ${id}`,
+    title: `todo`,
     isDone: randomIsDone,
     priority: randomPriority,
+  }
+}
+
+export const createTodo = () => {
+  const id = generateId.next().value
+  return {
+    id,
+    ...createTodoWithoutId(),
+    title: `todo ${id}`,
   }
 }
 
