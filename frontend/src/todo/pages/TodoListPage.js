@@ -4,11 +4,10 @@ import { TodoList } from '../components/TodoList'
 import { AddTodo } from '../components/AddTodo'
 import { todoService } from '../services'
 
-function App() {
+export const TodoListPage = () => {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    console.log('useEffect hook')
     todoService.fetchTodos().then(fetchedTodos => setTodos(fetchedTodos.todos))
   }, [])
 
@@ -30,5 +29,3 @@ function App() {
     </div>
   )
 }
-
-export default App
