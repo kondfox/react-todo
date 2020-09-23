@@ -1,7 +1,7 @@
 import React from 'react'
 import { Todo } from './Todo'
 
-export const TodoList = ({ todos, handleDone }) => {
+export const TodoList = ({ todos = [], handleDone }) => {
   return (
     <>
       <h1>My Todos</h1>

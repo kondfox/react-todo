@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { fireEvent, render, screen, cleanup } from '@testing-library/react'
+import { fireEvent, render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 const { Button } = require('../Button')
 
@@ -14,16 +14,17 @@ describe('Button component tests', () => {
 
   it('shows the given title', () => {
     const title = 'title'
-    render(<Button title={title} />)
-    expect(screen.getByText('title')).toBeDefined()
+    const { getByText } = render(<Button title={title} />)
+    getByText(title)
   })
 
   it('calls the given event on click', () => {
     const title = 'title'
     const clickEvent = jest.fn()
-    render(<Button title={title} click={clickEvent}></Button>)
+    const { getByText } = render(<Button title={title} click={clickEvent} />)
 
-    fireEvent.click(screen.getByText(title))
+    fireEvent.click(getByText(title))
+
     expect(clickEvent).toBeCalled()
   })
 })

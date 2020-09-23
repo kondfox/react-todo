@@ -16,13 +16,16 @@ export const AddTodo = ({ newTodo }) => {
 
   return (
     <div className="addTodo">
+      <label htmlFor="newTitle">New todo:</label>
       <input
         id="newTitle"
         type="text"
         placeholder="New todo..."
         value={title}
         onChange={e => setTitle(e.target.value)}
+        autoFocus
       />
+      <label htmlFor="priority">Priority:</label>
       <select
         name="priority"
         id="priority"
