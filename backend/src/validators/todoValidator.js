@@ -24,6 +24,11 @@ export const todoValidator = {
       PRIORITY
     )}`,
   },
+  owner: {
+    validate: owner => owner.length > 0,
+    required: false,
+    errorMessage: `owner shouldn't be empty string`,
+  },
 }
 
 export const todoFilterValidator = {
@@ -33,4 +38,6 @@ export const todoFilterValidator = {
     errorMessage: 'isDone must be 0 or 1',
   },
   priority: todoValidator.priority,
+  title: todoValidator.title,
+  owner: todoValidator.owner,
 }

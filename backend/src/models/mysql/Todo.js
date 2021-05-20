@@ -1,5 +1,5 @@
 import { db } from '../data/connection'
-import { PRIORITY } from '../constants'
+import { PRIORITY } from '../../constants'
 
 const tableName = 'todos'
 

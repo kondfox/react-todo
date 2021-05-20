@@ -12,6 +12,7 @@ export const TodoListPage = () => {
   }, [])
 
   const newTodo = async todo => {
+    console.log('newTodo called with:', todo)
     const savedTodo = await todoService.addTodo(todo)
     setTodos([...todos, savedTodo])
   }
